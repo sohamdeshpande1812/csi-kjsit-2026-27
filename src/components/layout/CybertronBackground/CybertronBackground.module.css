@@ -1,0 +1,72 @@
+.backdropRoot {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 65% 50% at 78% 22%, rgba(255, 114, 31, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 18% 72%, rgba(56, 168, 255, 0.09) 0%, transparent 68%),
+    linear-gradient(180deg, #0c0f16 0%, #121722 50%, #0d1119 100%);
+}
+
+.sectionBackdropRoot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambientNebula {
+  position: absolute;
+  inset: -15%;
+  background:
+    radial-gradient(circle at 75% 30%, rgba(255, 138, 36, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 25% 65%, rgba(56, 168, 255, 0.08) 0%, transparent 45%);
+  filter: blur(42px);
+  animation: nebulaDrift 18s ease-in-out infinite alternate;
+}
+
+.diagonalStruts {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      -55deg,
+      rgba(255, 255, 255, 0.014) 0px,
+      rgba(255, 255, 255, 0.014) 1px,
+      transparent 1px,
+      transparent 84px
+    );
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.012) 0px,
+    rgba(255, 255, 255, 0.012) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  opacity: 0.55;
+}
+
+@keyframes nebulaDrift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, 2%, 0) scale(1.06);
+  }
+}

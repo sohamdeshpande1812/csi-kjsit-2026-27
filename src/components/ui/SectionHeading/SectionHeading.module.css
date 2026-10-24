@@ -1,0 +1,81 @@
+.heading {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 48rem;
+}
+
+.boundaryLine {
+  width: 72px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-orange), var(--color-amber), transparent);
+  transform-origin: left center;
+}
+
+.center .boundaryLine {
+  transform-origin: center;
+}
+
+.center {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-hud);
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+
+.index {
+  color: var(--color-silver-300);
+  font-weight: 600;
+}
+
+.separator {
+  width: 22px;
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+.title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-silver-100);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 40rem;
+}
+
+/* ---- Light Section Variant (Brushed Platinum / Off-White sections) ----- */
+.light .kicker {
+  color: var(--color-orange-strong);
+}
+
+.light .index {
+  color: var(--color-light-subtle);
+}
+
+.light .separator {
+  background: var(--color-light-border-strong);
+}
+
+.light .title {
+  color: var(--color-light-text);
+}
+
+.light .lead {
+  color: var(--color-light-muted);
+}

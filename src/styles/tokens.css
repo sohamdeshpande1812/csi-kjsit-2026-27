@@ -1,0 +1,144 @@
+/* ==========================================================================
+   DESIGN TOKENS — CSI KJSIT 2026 (CINEMATIC CYBERTRONIAN EDITION)
+   Sophisticated multi-surface palette:
+   - Forged gunmetal & dark steel for cinematic sections (Hero, About, Team)
+   - Brushed silver, platinum & off-white for high-contrast content sections (Events, Sponsors)
+   - Molten amber & warm orange for primary energy, lighting, and focal accents
+   - Restrained electric blue for fine optical and technological details
+   ========================================================================== */
+
+:root {
+  /* ---- Dark Forged Steel & Gunmetal Surfaces --------------------------- */
+  --color-bg: #11141a;              /* deep forged gunmetal (not flat black) */
+  --color-bg-elevated: #171b23;     /* dark industrial steel */
+  --color-surface: #1d222c;         /* machined gunmetal panel */
+  --color-surface-2: #252c38;       /* elevated steel hover surface */
+  --color-charcoal: #0d1015;        /* deep charcoal for contrast anchoring */
+
+  /* ---- Light Metallic & Off-White Surfaces (for section contrast) ------ */
+  --color-light-bg: #eef1f6;        /* off-white brushed aluminum */
+  --color-light-elevated: #e3e8f0;  /* neutral titanium grey */
+  --color-light-surface: #ffffff;   /* crisp architectural card surface */
+  --color-light-surface-2: #f6f8fb; /* subtle metallic card tint */
+  --color-light-text: #12161f;      /* deep gunmetal heading text on light */
+  --color-light-muted: #434d5e;     /* readable slate body text on light */
+  --color-light-subtle: #647084;    /* metadata label on light */
+  --color-light-border: rgba(18, 22, 31, 0.12);
+  --color-light-border-strong: rgba(18, 22, 31, 0.24);
+
+  /* ---- Metallic Silver & Chrome Scale ---------------------------------- */
+  --color-silver-100: #f4f6fa;
+  --color-silver-200: #dfe5ef;
+  --color-silver-300: #c2cbd9;
+  --color-silver-400: #9ba6b8;
+  --color-silver-500: #7f8b9f;
+  --color-silver-600: #4c5668;
+
+  /* ---- Primary Energy: Warm Amber & Molten Orange ---------------------- */
+  --color-amber-bright: #ffc145;
+  --color-amber: #ff9a2e;
+  --color-orange: #ff6214;
+  --color-orange-strong: #e04d06;
+  --color-orange-soft: rgba(255, 98, 20, 0.15);
+  --color-amber-soft: rgba(255, 154, 46, 0.14);
+
+  /* ---- Secondary Tech Accent: Restrained Electric Blue ----------------- */
+  --color-blue: #3b82f6;
+  --color-cyan: #68b5ff;
+  --color-blue-soft: rgba(59, 130, 246, 0.14);
+
+  /* ---- Semantic Mappings ----------------------------------------------- */
+  --color-primary: var(--color-orange);
+  --color-primary-strong: var(--color-orange-strong);
+  --color-primary-soft: var(--color-orange-soft);
+
+  /* ---- Text on Dark Steel ---------------------------------------------- */
+  --color-text: var(--color-silver-100);
+  --color-text-muted: var(--color-silver-300);
+  --color-text-subtle: var(--color-silver-400);
+  --color-text-inverse: #11141a;
+
+  /* ---- Lines & Machined Borders ---------------------------------------- */
+  --color-border: rgba(210, 220, 235, 0.13);
+  --color-border-strong: rgba(210, 220, 235, 0.26);
+  --color-border-accent: rgba(255, 122, 36, 0.52);
+
+  /* ---- Metallic & Energy Gradients ------------------------------------- */
+  --gradient-metal: linear-gradient(180deg, #ffffff 0%, #dce3ee 48%, #8f9bad 100%);
+  --gradient-chrome: linear-gradient(135deg, #f8fafd 0%, #b8c3d4 45%, #eef2f8 70%, #7d899c 100%);
+  --gradient-energy: linear-gradient(95deg, #ff5500 0%, #ff881a 52%, #ffc145 100%);
+  --gradient-panel: linear-gradient(160deg, rgba(36, 43, 56, 0.92) 0%, rgba(20, 24, 33, 0.96) 100%);
+  --gradient-panel-hover: linear-gradient(160deg, rgba(45, 53, 68, 0.96) 0%, rgba(24, 29, 40, 0.98) 100%);
+  --gradient-steel-light: linear-gradient(180deg, #f2f5f9 0%, #e4e9f2 100%);
+  --gradient-light-card: linear-gradient(165deg, #ffffff 0%, #f3f6fb 100%);
+
+  /* ---- Typography ------------------------------------------------------ */
+  --font-display: 'Chakra Petch', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  /* Fluid type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.65vw, 1.65rem);
+  --text-2xl: clamp(1.65rem, 1.3rem + 1.5vw, 2.5rem);
+  --text-3xl: clamp(2.35rem, 1.6rem + 3vw, 4.25rem);
+  --text-hero: clamp(3rem, 1.8rem + 5.2vw, 6.25rem);
+
+  --leading-tight: 1.02;
+  --leading-snug: 1.2;
+  --leading-normal: 1.62;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-hud: 0.2em;
+
+  /* ---- Spacing --------------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+  --space-10: 8.5rem;
+  --section-padding-y: clamp(5.5rem, 3.5rem + 7vw, 9.5rem);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --container-max: 1280px;
+  --container-padding: clamp(1.25rem, 0.5rem + 3vw, 3.25rem);
+  --nav-height: 76px;
+
+  /* ---- Shape ----------------------------------------------------------- */
+  --radius-xs: 3px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --chamfer: 14px;
+
+  /* ---- Depth & Lighting ------------------------------------------------ */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 16px 38px -12px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-lg: 0 24px 56px -12px rgba(0, 0, 0, 0.78), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --shadow-hover: 0 22px 48px -12px rgba(0, 0, 0, 0.8), 0 0 28px -8px rgba(255, 106, 26, 0.32), inset 0 1px 0 rgba(255, 166, 77, 0.22);
+  --shadow-light-card: 0 14px 34px -12px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-light-hover: 0 22px 44px -12px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(224, 77, 6, 0.35);
+  --shadow-glow: 0 0 0 1px var(--color-border-accent), 0 0 32px -6px rgba(255, 98, 20, 0.42);
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 280ms;
+  --duration-slow: 600ms;
+
+  /* ---- Layers ---------------------------------------------------------- */
+  --z-canvas: 0;
+  --z-content: 1;
+  --z-nav: 50;
+  --z-overlay: 100;
+}

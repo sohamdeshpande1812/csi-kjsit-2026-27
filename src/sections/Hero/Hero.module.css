@@ -1,0 +1,466 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-height) + var(--space-6));
+  padding-bottom: var(--space-8);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 68% 60% at 74% 52%, rgba(255, 114, 31, 0.16), transparent 68%),
+    radial-gradient(ellipse 52% 48% at 22% 28%, rgba(214, 224, 240, 0.06), transparent 65%),
+    linear-gradient(165deg, rgba(20, 24, 34, 0.62) 0%, rgba(14, 17, 24, 0.56) 52%, rgba(22, 27, 38, 0.62) 100%);
+}
+
+/* ---- Industrial Hangar Background Layers --------------------------------- */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.industrialBeams {
+  position: absolute;
+  inset: -8% 0;
+  background-image:
+    linear-gradient(
+      118deg,
+      transparent 0%,
+      transparent 44%,
+      rgba(218, 226, 238, 0.04) 44.5%,
+      rgba(255, 154, 46, 0.09) 45.2%,
+      transparent 46%
+    ),
+    linear-gradient(
+      118deg,
+      transparent 0%,
+      transparent 68%,
+      rgba(218, 226, 238, 0.05) 68.4%,
+      rgba(218, 226, 238, 0.01) 71%,
+      transparent 71.5%
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 96px 96px, 96px 96px;
+  mask-image: radial-gradient(ellipse 88% 78% at 62% 48%, #000 32%, transparent 86%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 78% at 62% 48%, #000 32%, transparent 86%);
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 46% 52% at 73% 48%, rgba(255, 106, 26, 0.24), transparent 68%),
+    radial-gradient(ellipse 28% 36% at 75% 36%, rgba(255, 193, 69, 0.16), transparent 60%),
+    radial-gradient(ellipse 26% 32% at 84% 58%, rgba(59, 130, 246, 0.11), transparent 65%),
+    linear-gradient(180deg, transparent 74%, var(--color-bg) 100%);
+}
+
+.lightSweep {
+  position: absolute;
+  top: -15%;
+  right: 8%;
+  width: 580px;
+  height: 120%;
+  transform: rotate(-22deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 168, 52, 0.07) 48%,
+    rgba(244, 247, 252, 0.06) 54%,
+    transparent 100%
+  );
+  filter: blur(18px);
+}
+
+.horizonLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(194, 203, 217, 0.28) 25%,
+    rgba(255, 138, 36, 0.65) 55%,
+    rgba(194, 203, 217, 0.28) 80%,
+    transparent 100%
+  );
+}
+
+/* ---- Two-column layout ------------------------------------------------- */
+.layout {
+  display: grid;
+  grid-template-columns: 0.96fr 1.04fr;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* ---- Copy & Headline --------------------------------------------------- */
+.content {
+  display: grid;
+  gap: var(--space-5);
+  z-index: 2;
+}
+
+.eyebrowPlate {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: fit-content;
+  padding: 0.45rem 0.95rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 114, 31, 0.14) 0%,
+    rgba(30, 36, 48, 0.82) 100%
+  );
+  border: 1px solid rgba(255, 154, 46, 0.34);
+  border-left: 3px solid var(--color-orange);
+  border-radius: var(--radius-xs);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.eyebrowLogo {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 146, 43, 0.35));
+}
+
+.title {
+  display: grid;
+  font-size: clamp(2.85rem, 1.8rem + 4.4vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
+}
+
+.lineMask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+
+.lineInner {
+  display: block;
+  will-change: transform, opacity;
+}
+
+.lead {
+  font-size: var(--text-lg);
+  line-height: 1.68;
+  color: var(--color-silver-200);
+  max-width: 35rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.ctaSlot {
+  display: inline-flex;
+}
+
+.metaBar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(206, 216, 230, 0.18);
+  max-width: 36rem;
+}
+
+.metaItem {
+  position: relative;
+  padding-left: var(--space-3);
+  border-left: 2px solid rgba(255, 154, 46, 0.45);
+}
+
+.metaBar dt {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.metaBar dd {
+  margin-top: 0.2rem;
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-silver-100);
+}
+
+/* ---- Towering Unboxed 3D Titan Environmental Stage --------------------- */
+.titanStage {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 68vh, 720px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titanAtmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.amberFlare {
+  position: absolute;
+  inset: 6% 8%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(255, 122, 31, 0.28) 0%, rgba(255, 180, 58, 0.1) 42%, transparent 72%);
+  filter: blur(16px);
+}
+
+.gantryFrame {
+  position: absolute;
+  inset: 4% 6% 6%;
+  border-top: 1px solid rgba(226, 234, 245, 0.16);
+  border-bottom: 1px solid rgba(255, 146, 43, 0.35);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 22%, transparent 78%, rgba(255, 114, 31, 0.08) 100%);
+  clip-path: polygon(
+    24px 0,
+    calc(100% - 24px) 0,
+    100% 24px,
+    100% calc(100% - 24px),
+    calc(100% - 24px) 100%,
+    24px 100%,
+    0 calc(100% - 24px),
+    0 24px
+  );
+}
+
+.pedestalGlow {
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: 4%;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 122, 31, 0.46) 0%,
+    rgba(255, 178, 56, 0.16) 48%,
+    transparent 76%
+  );
+  filter: blur(8px);
+}
+
+.canvasViewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ---- Tactical Autobot Unit Dock (Optimus Prime / Bumblebee) ------------ */
+.unitDock {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 2.2%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.65rem 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 17, 24, 0.92) 0%,
+    rgba(24, 30, 42, 0.88) 100%
+  );
+  border: 1px solid rgba(226, 234, 245, 0.18);
+  border-left: 3px solid var(--color-orange-500);
+  backdrop-filter: blur(10px);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+}
+
+.unitReadout {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.unitCode {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-amber-400);
+}
+
+.unitName {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-silver-100);
+}
+
+.unitSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.unitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.78rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-silver-300);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(226, 234, 245, 0.16);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 7px) 0,
+    100% 7px,
+    100% 100%,
+    7px 100%,
+    0 calc(100% - 7px)
+  );
+}
+
+.unitButton:hover {
+  color: var(--color-silver-100);
+  border-color: rgba(255, 146, 43, 0.55);
+  background: rgba(255, 122, 31, 0.12);
+}
+
+.unitButtonActive {
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff6b1a 0%, #d9480f 100%);
+  border-color: var(--color-amber-bright);
+  box-shadow: 0 0 18px rgba(255, 107, 26, 0.42);
+}
+
+.unitIndex {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  opacity: 0.78;
+}
+
+/* ---- Scroll cue -------------------------------------------------------- */
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-4);
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-hud);
+  text-transform: uppercase;
+  color: var(--color-silver-300);
+  z-index: var(--z-content);
+}
+
+.scrollLine {
+  width: 2px;
+  height: 32px;
+  background: linear-gradient(180deg, var(--color-amber), transparent);
+  animation: scrollPulse 2.2s var(--ease-in-out) infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollPulse {
+  0% {
+    transform: scaleY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+/* ---- Responsive -------------------------------------------------------- */
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .titanStage {
+    height: clamp(440px, 56vh, 540px);
+  }
+
+  .scrollCue {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .metaBar {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .titanStage {
+    height: 440px;
+  }
+
+  .unitDock {
+    left: 3%;
+    right: 3%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .unitSwitcher {
+    justify-content: stretch;
+  }
+
+  .unitButton {
+    flex: 1;
+    justify-content: center;
+  }
+}

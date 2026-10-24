@@ -1,0 +1,17 @@
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+  padding: var(--space-6);
+  min-height: 180px;
+  background: var(--gradient-panel);
+  border-left: 2px solid var(--color-primary);
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}

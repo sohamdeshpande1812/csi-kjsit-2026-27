@@ -1,0 +1,95 @@
+.button {
+  --btn-chamfer: 10px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  clip-path: polygon(
+    var(--btn-chamfer) 0,
+    100% 0,
+    100% calc(100% - var(--btn-chamfer)),
+    calc(100% - var(--btn-chamfer)) 100%,
+    0 100%,
+    0 var(--btn-chamfer)
+  );
+  transition:
+    background var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Sizes ------------------------------------------------------------- */
+.md {
+  padding: 0.78rem 1.6rem;
+  font-size: var(--text-sm);
+}
+
+.lg {
+  padding: 1.05rem 2.25rem;
+  font-size: var(--text-base);
+}
+
+/* ---- Variants ---------------------------------------------------------- */
+/* Primary: Molten orange-amber forged metallic CTA */
+.primary {
+  background: linear-gradient(135deg, #ff6a1a 0%, #e04b00 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px -6px rgba(255, 98, 20, 0.45);
+}
+
+.primary:hover {
+  background: linear-gradient(135deg, #ff8133 0%, #f05608 100%);
+  box-shadow: 0 12px 30px -6px rgba(255, 118, 38, 0.62);
+  transform: translateY(-1px);
+}
+
+/* Ghost: Brushed steel outline button */
+.ghost {
+  background: rgba(210, 220, 235, 0.34);
+  color: var(--color-silver-100);
+}
+
+.ghost::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: #181d26;
+  clip-path: inherit;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.ghost:hover {
+  background: var(--color-amber);
+  color: #ffffff;
+}
+
+.ghost:hover::before {
+  background: #222936;
+}
+
+/* Light-surface metallic outline button (used on light platinum sections) */
+.steel {
+  background: #161b24;
+  color: #f4f6fa;
+}
+
+.steel:hover {
+  background: #ff6214;
+  color: #ffffff;
+}
